@@ -161,9 +161,9 @@
       rating = '🏆 超越千人的精英！！！';
     } else if (matchedPercent < 1.5) {
       rating = '🚀 百里挑一的俊才！！';
-    } else if (matchedPercent < 11) {
+    } else if (matchedPercent < 3.8) {
       rating = '🐔 鹤立鸡群！';
-    } else if (matchedPercent < 41) {
+    } else if (matchedPercent < 15.2) {
       rating = '👌 及格';
     } else {
       rating = '';
