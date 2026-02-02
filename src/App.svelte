@@ -55,7 +55,7 @@
 
   let matchedCount = 0;            
   let matchedPercent = 0;
-  let rating = '';
+  let scopeRating = '';
   let perMillion = 0;              
   let nationalEstimate = 0;        
 
@@ -96,7 +96,7 @@
   function applyFilters() {
     if (!rows.length || !M) {
       matchedCount = matchedPercent = perMillion = nationalEstimate = 0;
-      rating = '';
+      scopeRating = '';
       scopeDenom = scopePercent = scopePerMillion = 0;
       return;
     }
@@ -150,27 +150,29 @@
     matchedPercent = pAll * 100;
     perMillion = Math.round(SAMPLE_SIZE * pAll);
     nationalEstimate = Math.round(TOTAL_MALE * pAll);
-    
-    if (matchedPercent === 0) {
-      rating = '查无此人 请移居其它地区 🇺🇸 🇪🇺 🇦🇺 🇸🇬';
-    } else if (matchedPercent < 0.0015) {
-      rating = '💎 钻石王老五 不要跑！！！！！';
-    } else if (matchedPercent < 0.015) {
-      rating = '🌟 万里挑一的极品！！！！';
-    } else if (matchedPercent < 0.15) {
-      rating = '🏆 超越千人的精英！！！';
-    } else if (matchedPercent < 1.5) {
-      rating = '🚀 百里挑一的俊才！！';
-    } else if (matchedPercent < 3.8) {
-      rating = '🐔 鹤立鸡群！';
-    } else if (matchedPercent < 15.2) {
-      rating = '👌 合格';
-    } else {
-      rating = '';
-    }
 
     const pScope = scopeDenom ? passed.length / scopeDenom : 0;
     scopePercent = pScope * 100;
+    if (scopePercent === 0) {
+      scopeRating = '🤷‍♂️ 此人只应天上有';
+    } else if (scopePercent < 0.0015) {
+      scopeRating = '💎 钻石王老五 不要跑！！！！！';
+    } else if (scopePercent < 0.015) {
+      scopeRating = '🚀 万里挑一的极品！！！！';
+    } else if (scopePercent < 0.15) {
+      scopeRating = '🏆 大众眼中的精英！！！';
+    } else if (scopePercent < 1.5) {
+      scopeRating = '💯 百里挑一！！';
+    } else if (scopePercent < 5.5) {
+      scopeRating = '🔝 名列前茅！';
+    } else if (scopePercent < 21) {
+      scopeRating = '❗ 崭露头角';
+    } else if (scopePercent < 51) {
+      scopeRating = '👌 超越半数男性';
+    } else {
+      scopeRating = '';
+    }
+    
     scopePerMillion = Math.round(SAMPLE_SIZE * pScope);
   }
 
@@ -194,30 +196,30 @@
         </p>
     </div>
     <!-- 卡片 1 -->
-    <div class="bg-gray-800 rounded-xl p-4 shadow" style="position: sticky; top: 0">
+    <div class="bg-gray-800 rounded-xl p-4 shadow">
       <p>
         每「一百万」中国男性中有：
         <span class="text-red-400 font-extrabold text-lg">{fmt(perMillion)}</span>
         人符合，占比
-        <span class="text-red-400 font-extrabold text-lg">{matchedPercent.toFixed(4)}%</span>
-        {#if rating}
-          <span class="text-red-400 font-extrabold text-lg">{rating}</span>
-        {/if}
+        <span class="text-red-400 font-extrabold text-lg">{matchedPercent.toFixed(3)}%</span>
       </p>
-      <p class="mt-2 text-sm text-gray-400" style="position: sticky; top: 88px">
+      <p class="mt-2 text-sm text-gray-400">
         全国约 7 亿 男性中，大约有：
         <span class="text-red-400 font-semibold">{fmt(nationalEstimate)}</span> 人符合
       </p>
     </div>
 
     <!-- 卡片 2 -->
-    <div class="bg-gray-800 rounded-xl p-4 shadow">
+    <div class="bg-gray-800 rounded-xl p-4 shadow" style="position: sticky; top: 0">
       <p>
         在你所选择的 <span class="font-semibold">{ageMin}–{ageMax}</span> 岁年龄段中，
         每「一百万」中国男性中有：
         <span class="text-red-400 font-extrabold text-lg">{fmt(scopePerMillion)}</span>
-        人符合，占比
-        <span class="text-red-400 font-extrabold text-lg">{scopePercent.toFixed(2)}%</span>
+        人符合
+        {#if scopeRating}
+          ，<span class="text-red-400 font-extrabold text-lg">{scopeRating}</span>
+        {/if}
+        ，占比<span class="text-red-400 font-extrabold text-lg">{scopePercent.toFixed(3)}%</span>
         <span class="text-xs text-gray-400">（分母=该年龄段样本数）</span>
       </p>
     </div>
