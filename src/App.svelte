@@ -56,7 +56,8 @@
   let matchedCount = 0;            
   let matchedPercent = 0;          
   let perMillion = 0;              
-  let nationalEstimate = 0;        
+  let nationalEstimate = 0;
+  let nationalPercent = 0;
 
   let scopeDenom = 0;              
   let scopePercent = 0;            
@@ -94,7 +95,7 @@
   // —— 过滤逻辑 —— 
   function applyFilters() {
     if (!rows.length || !M) {
-      matchedCount = matchedPercent = perMillion = nationalEstimate = 0;
+      matchedCount = matchedPercent = perMillion = nationalEstimate = nationalPercent = 0;
       scopeDenom = scopePercent = scopePerMillion = 0;
       return;
     }
@@ -148,6 +149,7 @@
     matchedPercent = pAll * 100;
     perMillion = Math.round(SAMPLE_SIZE * pAll);
     nationalEstimate = Math.round(TOTAL_MALE * pAll);
+    nationalPercent = nationalEstimate / TOTAL_MALE * 100;
 
     const pScope = scopeDenom ? passed.length / scopeDenom : 0;
     scopePercent = pScope * 100;
@@ -179,11 +181,12 @@
         每「一百万」中国男性中有：
         <span class="text-red-400 font-extrabold text-lg">{fmt(perMillion)}</span>
         人符合，占比
-        <span class="text-red-400 font-extrabold text-lg">{matchedPercent.toFixed(2)}%</span>
+        <span class="text-red-400 font-extrabold text-lg">{matchedPercent.toFixed(4)}%</span>
       </p>
       <p class="mt-2 text-sm text-gray-400">
         全国约 7 亿 男性中，大约有：
-        <span class="text-red-400 font-semibold">{fmt(nationalEstimate)}</span> 人符合
+        <span class="text-red-400 font-semibold">{fmt(nationalEstimate)}</span> 人符合，占比
+        <span class="text-red-400 font-semibold">{nationalPercent.toFixed(4)}%</span>
       </p>
     </div>
 
