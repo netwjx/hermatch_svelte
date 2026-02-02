@@ -56,8 +56,7 @@
   let matchedCount = 0;            
   let matchedPercent = 0;          
   let perMillion = 0;              
-  let nationalEstimate = 0;
-  let nationalPercent = 0;
+  let nationalEstimate = 0;        
 
   let scopeDenom = 0;              
   let scopePercent = 0;            
@@ -95,7 +94,7 @@
   // —— 过滤逻辑 —— 
   function applyFilters() {
     if (!rows.length || !M) {
-      matchedCount = matchedPercent = perMillion = nationalEstimate = nationalPercent = 0;
+      matchedCount = matchedPercent = perMillion = nationalEstimate = 0;
       scopeDenom = scopePercent = scopePerMillion = 0;
       return;
     }
@@ -149,7 +148,6 @@
     matchedPercent = pAll * 100;
     perMillion = Math.round(SAMPLE_SIZE * pAll);
     nationalEstimate = Math.round(TOTAL_MALE * pAll);
-    nationalPercent = nationalEstimate / TOTAL_MALE * 100;
 
     const pScope = scopeDenom ? passed.length / scopeDenom : 0;
     scopePercent = pScope * 100;
@@ -168,7 +166,7 @@
     <!-- 标题 -->
       <div class="text-center py-4">
         <h1 class="text-2xl md:text-3xl font-extrabold text-red-400">
-          中国女性择偶数据实验室
+          中国优质男性数据实验室
         </h1>
         <p class="text-gray-400 mt-2 text-sm">
           数据来源：<a href="https://github.com/hongtaoh/ChineseMenData" target="_blank" class="underline text-blue-400">ChineseMenData</a> ｜ 
@@ -185,8 +183,7 @@
       </p>
       <p class="mt-2 text-sm text-gray-400">
         全国约 7 亿 男性中，大约有：
-        <span class="text-red-400 font-semibold">{fmt(nationalEstimate)}</span> 人符合，占比
-        <span class="text-red-400 font-semibold">{nationalPercent.toFixed(4)}%</span>
+        <span class="text-red-400 font-semibold">{fmt(nationalEstimate)}</span> 人符合
       </p>
     </div>
 
