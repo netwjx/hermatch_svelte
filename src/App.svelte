@@ -159,6 +159,8 @@
       rating = '超越千人的精英!!';
     } else if(matchedPercent < 1.5) {
       rating = '百里挑一的俊才!';
+    } else {
+      rating = '';
     }
 
     const pScope = scopeDenom ? passed.length / scopeDenom : 0;
