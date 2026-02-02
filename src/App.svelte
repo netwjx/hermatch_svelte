@@ -152,15 +152,15 @@
     nationalEstimate = Math.round(TOTAL_MALE * pAll);
     
     if (matchedPercent < 0.0015) {
-      rating = '钻石王老五 不要跑!!!!';
+      rating = '💎 钻石王老五 不要跑！！！！';
     } else if (matchedPercent < 0.015) {
-      rating = '万里挑一的极品!!!';
+      rating = '🌟 万里挑一的极品！！！';
     } else if (matchedPercent < 0.15) {
-      rating = '超越千人的精英!!';
+      rating = '🏆 超越千人的精英！！';
     } else if (matchedPercent < 1.5) {
-      rating = '百里挑一的俊才!';
+      rating = '🚀 百里挑一的俊才！';
     } else if (matchedPercent === 0) {
-      rating = '银河系内查无此人, 请移居其它星系';
+      rating = '查无此人 请移居其它地区 🇺🇸 🇪🇺 🇦🇺';
     } else {
       rating = '';
     }
