@@ -188,7 +188,7 @@
     <!-- 标题 -->
       <div class="text-center py-4">
         <h1 class="text-2xl md:text-3xl font-extrabold text-red-400">
-          中国优质男性数据实验室
+          中国优质男性数据
         </h1>
         <p class="text-gray-400 mt-2 text-sm">
           数据来源：<a href="https://github.com/hongtaoh/ChineseMenData" target="_blank" class="underline text-blue-400">ChineseMenData</a> ｜ 
