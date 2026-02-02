@@ -151,16 +151,20 @@
     perMillion = Math.round(SAMPLE_SIZE * pAll);
     nationalEstimate = Math.round(TOTAL_MALE * pAll);
     
-    if (matchedPercent < 0.0015) {
-      rating = '💎 钻石王老五 不要跑！！！！';
-    } else if (matchedPercent < 0.015) {
-      rating = '🌟 万里挑一的极品！！！';
-    } else if (matchedPercent < 0.15) {
-      rating = '🏆 超越千人的精英！！';
-    } else if (matchedPercent < 1.5) {
-      rating = '🚀 百里挑一的俊才！';
-    } else if (matchedPercent === 0) {
+    if (matchedPercent === 0) {
       rating = '查无此人 请移居其它地区 🇺🇸 🇪🇺 🇦🇺 🇸🇬';
+    } else if (matchedPercent < 0.0015) {
+      rating = '💎 钻石王老五 不要跑！！！！！';
+    } else if (matchedPercent < 0.015) {
+      rating = '🌟 万里挑一的极品！！！！';
+    } else if (matchedPercent < 0.15) {
+      rating = '🏆 超越千人的精英！！！';
+    } else if (matchedPercent < 1.5) {
+      rating = '🚀 百里挑一的俊才！！';
+    } else if (matchedPercent < 11) {
+      rating = '🐔 鹤立鸡群！';
+    } else if (matchedPercent < 61) {
+      rating = '👌 及格';
     } else {
       rating = '';
     }
