@@ -160,7 +160,7 @@
     } else if (matchedPercent < 1.5) {
       rating = '百里挑一的俊才!';
     } else if (matchedPercent === 0) {
-      rating = '银河系内查无此人*_*';
+      rating = '银河系内查无此人, 请移居其它星系';
     } else {
       rating = '';
     }
