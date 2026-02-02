@@ -155,10 +155,12 @@
       rating = '钻石王老五 不要跑!!!!';
     } else if (matchedPercent < 0.015) {
       rating = '万里挑一的极品!!!';
-    } else if(matchedPercent < 0.15) {
+    } else if (matchedPercent < 0.15) {
       rating = '超越千人的精英!!';
-    } else if(matchedPercent < 1.5) {
+    } else if (matchedPercent < 1.5) {
       rating = '百里挑一的俊才!';
+    } else if (matchedPercent === 0) {
+      rating = '银河系内查无此人*_*';
     } else {
       rating = '';
     }
