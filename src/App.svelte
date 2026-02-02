@@ -164,7 +164,7 @@
     } else if (matchedPercent < 3.8) {
       rating = '🐔 鹤立鸡群！';
     } else if (matchedPercent < 15.2) {
-      rating = '👌 及格';
+      rating = '👌 合格';
     } else {
       rating = '';
     }
