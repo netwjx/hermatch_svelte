@@ -163,7 +163,7 @@
       rating = '🚀 百里挑一的俊才！！';
     } else if (matchedPercent < 11) {
       rating = '🐔 鹤立鸡群！';
-    } else if (matchedPercent < 61) {
+    } else if (matchedPercent < 41) {
       rating = '👌 及格';
     } else {
       rating = '';
